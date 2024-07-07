@@ -1,9 +1,9 @@
 //1) Define the required variables used to track the state of the game.
 
-let board = "";
-let turn = "";
-let winner = "";
-let tie = "";
+let board;
+let turn;
+let winner;
+let tie;
 
 //2) Store cached element references.
 
@@ -14,6 +14,17 @@ const messageEl = document.querySelector("#message");
 
 //3) Upon loading, the game state should be initialized, and a function should 
 //   be called to render this game state.
+
+const init = () => {
+    board = ["", "", "", "", "", "", "", "", ""];
+    turn = "X";
+    winner = false;
+    tie = false;
+    render();
+    console.log("init called");
+};
+
+init();
 
 //4) The state of the game should be rendered to the user.
 
