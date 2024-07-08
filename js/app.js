@@ -74,9 +74,17 @@ const checkForWinner = () => {
     winningCombos.forEach((combo) => {
         if (board[combo[0]] !== "" && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
             winner = true;
-            console.log(winner);
+            // console.log(winner);
         };
     });
+};
+
+const checkForTie = () => {
+    console.log(board.includes(""));
+    if (board.includes("") === false) {
+        tie = true;
+        // console.log(tie);
+    };
 };
 
 const handleClick = (event) => {
@@ -87,6 +95,7 @@ const handleClick = (event) => {
     if (squareEls[squareIndex].textContent !== "") { return };
     placePiece(squareIndex);
     checkForWinner();
+    checkForTie();
 
 };
 boardEl.addEventListener("click", handleClick);
