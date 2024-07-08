@@ -80,10 +80,21 @@ const checkForWinner = () => {
 };
 
 const checkForTie = () => {
-    console.log(board.includes(""));
     if (board.includes("") === false) {
         tie = true;
         // console.log(tie);
+    };
+};
+
+const switchPlayerTurn = () => {
+    if (winner === true) { return };
+    if (turn === "X") {
+        turn = "O";
+        return;
+    };
+    if (turn === "O") {
+        turn = "X";
+        return;
     };
 };
 
@@ -96,6 +107,7 @@ const handleClick = (event) => {
     placePiece(squareIndex);
     checkForWinner();
     checkForTie();
+    switchPlayerTurn();
 
 };
 boardEl.addEventListener("click", handleClick);
