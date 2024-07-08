@@ -7,10 +7,35 @@ let tie;
 
 //2) Store cached element references.
 
-const squareEls = document.querySelector(".sqr");
+const squareEls = document.querySelectorAll(".sqr");
 // console.dir(squareEls);
 const messageEl = document.querySelector("#message");
 // console.dir(messageEl);
+
+
+
+//4) The state of the game should be rendered to the user.
+
+const updateBoard = () => {
+    board.forEach((square, i) => {
+        squareEls[i].textContent = board[i];
+    });
+};
+
+const updateMessage = () => {
+    if (winner === false && tie === false) {
+        messageEl.textContent = `It is ${turn}'s turn.`;
+    } else if (winner === false && tie === true) {
+        messageEl.textContent = "It's a tie!";
+    } else {
+        messageEl.textContent = `${turn} wins!`;
+    };
+};
+
+const render = () => {
+    updateBoard();
+    updateMessage();
+};
 
 //3) Upon loading, the game state should be initialized, and a function should 
 //   be called to render this game state.
@@ -21,12 +46,11 @@ const init = () => {
     winner = false;
     tie = false;
     render();
-    console.log("init called");
 };
 
 init();
 
-//4) The state of the game should be rendered to the user.
+
 
 //5) Define the required constants.
 
