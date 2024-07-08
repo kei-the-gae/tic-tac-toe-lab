@@ -108,7 +108,7 @@ const handleClick = (event) => {
     checkForWinner();
     checkForTie();
     switchPlayerTurn();
-
+    render();
 };
 boardEl.addEventListener("click", handleClick);
 
