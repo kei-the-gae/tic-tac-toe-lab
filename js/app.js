@@ -70,13 +70,23 @@ const placePiece = (i) => {
     // console.log(board);
 };
 
+const checkForWinner = () => {
+    winningCombos.forEach((combo) => {
+        if (board[combo[0]] !== "" && board[combo[0]] === board[combo[1]] && board[combo[0]] === board[combo[2]]) {
+            winner = true;
+            console.log(winner);
+        };
+    });
+};
+
 const handleClick = (event) => {
     console.log(event.target.id);
     if (winner === true) { return };
     if (event.target.id === "") { return };
     const squareIndex = event.target.id;
-    if (squareEls[squareIndex].textContent != "") { return };
+    if (squareEls[squareIndex].textContent !== "") { return };
     placePiece(squareIndex);
+    checkForWinner();
 
 };
 boardEl.addEventListener("click", handleClick);
