@@ -65,13 +65,20 @@ const winningCombos = [
 
 //6) Handle a player clicking a square with a `handleClick` function.
 
+const placePiece = (i) => {
+    board[i] = turn;
+    // console.log(board);
+};
+
 const handleClick = (event) => {
     console.log(event.target.id);
     if (winner === true) { return };
     if (event.target.id === "") { return };
     const squareIndex = event.target.id;
     if (squareEls[squareIndex].textContent != "") { return };
+    placePiece(squareIndex);
 
 };
 boardEl.addEventListener("click", handleClick);
+
 //7) Create Reset functionality.
