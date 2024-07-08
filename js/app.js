@@ -11,8 +11,8 @@ const squareEls = document.querySelectorAll(".sqr");
 // console.dir(squareEls);
 const messageEl = document.querySelector("#message");
 // console.dir(messageEl);
-
-
+const boardEl = document.querySelector(".board");
+// console.dir(boardEl);
 
 //4) The state of the game should be rendered to the user.
 
@@ -65,4 +65,13 @@ const winningCombos = [
 
 //6) Handle a player clicking a square with a `handleClick` function.
 
+const handleClick = (event) => {
+    console.log(event.target.id);
+    if (winner === true) { return };
+    if (event.target.id === "") { return };
+    const squareIndex = event.target.id;
+    if (squareEls[squareIndex].textContent != "") { return };
+
+};
+boardEl.addEventListener("click", handleClick);
 //7) Create Reset functionality.
